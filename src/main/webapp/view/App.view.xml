@@ -1,0 +1,75 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified"
+	xmlns:m="sap.m" xmlns="sap.ui.table" controllerName="acc.controller.App"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:semantic="sap.m.semantic"
+	displayBlock="true">
+	<m:App>
+		<m:pages>
+			<m:Page title="User Accounts">
+				<m:content>
+					<m:Panel>
+						<m:content>
+							<Table id="accountsTable" text="User Accounts" selectionMode="MultiToggle" selectionBehavior="RowOnly"
+								visibleRowCount="15" rows="{/}"
+								class="sapUiResponsiveMargin sapUiNoMarginTop" growing="true"
+								growingScrollToLoad="true" 
+								updateFinished="onUpdateFinished" width="auto" mode="MultiSelect" sort="sortBirthDate" 
+								enableCellFilter="true">
+								<toolbar>
+									<m:Toolbar>
+										<m:ToolbarSpacer />
+										<m:Button icon="sap-icon://add-contact"
+											tooltip="Create New Account" press="onCreateAccount" />
+										<m:Button icon="sap-icon://delete"
+											tooltip="Delete Account" press="onDeleteAccount" />
+										<m:ToolbarSeparator/>
+										<m:Button
+											icon="sap-icon://decline"
+											tooltip="Clear all filters"
+											press="clearAllFilters"/>
+									</m:Toolbar>
+								</toolbar>
+								<columns>
+									<Column width="11rem" sortProperty="firstName" filterProperty="firstName">
+										<m:Label text="First Name" />
+										<template>
+											<m:Text text="{firstName}" />
+										</template>
+									</Column>
+									<Column width="11rem" sortProperty="lastName" filterProperty="lastName">
+										<m:Label text="Last Name" />
+										<template>
+											<m:Text text="{lastName}" />
+										</template>
+									</Column>
+									<Column width="6rem" hAlign="Email" sortProperty="email" filterProperty="email">
+										<m:Label text="email" />
+										<template>
+											<m:Text text="{email}" />
+										</template>
+									</Column>
+									<Column id="birthDateClmn" width="6rem" hAlign="Birth Date" sortProperty="birthDate" filterProperty="birthDate">
+										<m:Label text="Birth Date" />
+										<template>
+											<m:Text text="{
+												path: 'birthDate',
+												type: 'sap.ui.model.type.Date',
+												formatOptions: {source: {pattern: 'timestamp'}, pattern : 'dd/MM/YYYY'}
+											}"/>
+										</template>
+									</Column>
+									<Column width="2rem">
+										<m:Label text="Edit" />
+										<template>
+											<m:Button icon="sap-icon://user-edit" tooltip="Edit Account" press="onEditAccount"/>
+										</template>
+									</Column>
+								</columns>
+
+							</Table>
+						</m:content>
+					</m:Panel>
+				</m:content>
+			</m:Page>
+		</m:pages>
+	</m:App>
+</core:View>

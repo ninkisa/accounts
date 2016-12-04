@@ -1,0 +1,48 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+	<Dialog id="newAccountDialog" title="Create New Account">
+		<l:VerticalLayout class="sapUiContentPadding" width="100%">
+			<l:content>
+				<Input id="firstName" type="Text"  placeholder="First Name ..." 
+					value="{
+						path : '/firstName',
+						type : 'sap.ui.model.type.String',
+						constraints : {
+							minLength: 1,
+							maxLength: 50
+						}
+					}"/>
+				<Input id="lastName" type="Text" placeholder="Last Name ..." 
+					value="{
+						path : '/lastName',
+						type : 'sap.ui.model.type.String',
+						constraints : {
+							minLength: 1,
+							maxLength: 50
+						}
+					}"/>
+				<Input id="email" type="Email" placeholder="EMail ..."
+					valueStateText="EMail must be a valid email address." 
+					value="{
+						path : '/email',
+						type : '.typeEMail'
+					}"/>
+				<DatePicker id="birthDate" placeholder="Birth Date ..."
+					class="sapUiSmallMarginBottom" 
+					valueFormat="yyyy-MM-dd-HH-mm-ss"
+					change = "onDateChange"
+					value="{
+						path : '/birthDate', 
+						type : 'sap.ui.model.type.Date', 
+						formatOptions: {source: {pattern: 'timestamp'}, pattern : 'dd/MM/YYYY'}
+					}"/>
+			</l:content>
+		</l:VerticalLayout>
+		<beginButton>
+			<Button text="{i18n>dialogSubmitButtonText}" press="onSubmitDialog" />
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>dialogCancelButtonText}" press="onCloseDialog" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

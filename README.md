@@ -10,7 +10,9 @@ Command:
 4. create application.cfg under the config folder and enter the following properties
 
 jdbc.url=jdbc:mysql://host:port/dbname
+
 jdbc.user=DB User
+
 jdbc.password=DB Password
 
 5. copy the generated accounts.war file under the webapps folder in the tomcat installation

@@ -23,6 +23,9 @@ http://host:port/accounts/
 
 
 Example for application.cfg file
+
 jdbc.url=jdbc:mysql://localhost:3306/accounts
+
 jdbc.user=demoUser
+
 jdbc.password=abcd1234
